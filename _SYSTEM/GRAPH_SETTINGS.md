@@ -2,49 +2,25 @@
 type: system
 generated: true
 ---
+# Obsidian 浏览策略
 
-# 推荐的 Obsidian 图谱设置
+## 主界面：Breadcrumbs Tree
+日常不要从 Global Graph 找知识。打开 `[[知识导航]]`，按需展开某一支；各结构页也内嵌了只沿 `down` 遍历的折叠树。
 
-为了让主图表达“上位问题 / 复杂系统 → 更简单的组成与机制 → 具体知识”，建议在 Graph view 右上角齿轮中：
-
-## Filters → Search files
+## Global Graph：只做鸟瞰
+如果需要看整体连接密度，再打开关系图谱。建议过滤：
 
 ```text
 -path:"Records" -path:"_SYSTEM" -file:README
 ```
 
-同时关闭 **Orphans**，这样学习记录、系统说明和没有进入主结构的孤立课程不会干扰主图。
+关闭 **Orphans**，打开 **Arrows**。
 
-## Display
+## Local Graph：检查邻域
+当你已经定位到某个具体节点时，用 Local Graph 看它附近 1–2 层的横向关系，而不是拿它当层级导航。
 
-打开 **Arrows**。本 Vault 的主层级链接原则是：**复杂、上位、整体的节点指向更简单、更底层或更具体的节点**。
+## 方向约定
+主树沿 `down` 从 **整体 / 复杂 / 上位 → 组成 / 简单 / 具体** 展开。比如计算机分支是：软件 → ISA/微体系结构 → 状态与时序 → 数字逻辑 → 电路 → 半导体。
 
-例如计算机主线按下面方向阅读：
-
-```text
-操作系统与软件
-→ 微体系结构与 ISA
-→ 时序与状态
-→ 数字逻辑
-→ 电路
-→ 半导体器件
-```
-
-箭头表达的是“继续往下拆，会看到什么”，不是“底层向上构造”的时间顺序。
-
-## Groups（可选）
-
-可以按属性建立几组：
-
-```text
-[node_role:principle]
-[node_role:domain_projection]
-[node_role:mechanism OR abstraction_map OR abstraction_layer]
-[node_role:example_cluster OR concrete_example]
-```
-
-颜色只用于辅助辨认，不代表新的知识分类。
-
-## 阅读方式
-
-优先从一个高层节点打开 **Local Graph**，沿箭头向下追踪；需要看完整结构时再打开 Global Graph。
+## 数据边界
+Notion Relation 是事实源；Breadcrumbs Tree、Global Graph、Local Graph 都只是不同投影。不要为了某个视图复制知识节点。
